@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/BoulderMaze.unity
+    guid: 5f2402dea0c61aa498a4668545faab8c
+  - enabled: 1
+    path: Assets/Scenes/Stacking.unity
+    guid: 9566bbfa4f09b374c988123a3ba8bb25
+  - enabled: 1
+    path: Assets/Scenes/LightWiring.unity
+    guid: 4900dc560c4ed914b8b7151815a9940a
+  - enabled: 1
+    path: Assets/Scenes/ObstacleCourse.unity
+    guid: 9619519508c4075428482eda695770c4
+  - enabled: 1
+    path: Assets/Scenes/EnvironmentCode.unity
+    guid: 65447912893466c48bc90b960cbddab8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

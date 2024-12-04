@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerReturn" id="{cb759b57-fbf5-44eb-88a1-a97d1098a7ff}">
+		<property name="overridingInputFormat">
+			<value>1</value>
+		</property>
+		<property name="name">
+			<value>Delay</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{b8f513c6-b195-4397-b45b-7fdbedaca61c}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{b7fa8fc0-89dd-413f-9fed-35007bb271d7}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{dc4d3cd4-9e8d-4e14-9074-c1c09fe00dda}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{b8f513c6-b195-4397-b45b-7fdbedaca61c}">
+		<relationship name="effects">
+			<destination>{de991fcd-a0bd-465a-97c7-632ff6c6bb96}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{b7fa8fc0-89dd-413f-9fed-35007bb271d7}" />
+	<object class="MixerBusFader" id="{de991fcd-a0bd-465a-97c7-632ff6c6bb96}" />
+</objects>

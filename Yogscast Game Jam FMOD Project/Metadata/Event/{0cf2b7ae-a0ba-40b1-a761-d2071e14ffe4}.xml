@@ -36,9 +36,9 @@
 	</object>
 	<object class="MasterTrack" id="{ee605a51-7d14-43fe-b49a-6d40d0272e7a}">
 		<relationship name="modules">
-			<destination>{6e91e2d0-f78e-4ddc-895b-0eb1b8e853f0}</destination>
 			<destination>{9b28a8b9-f649-443a-a7e6-f5993d4c6654}</destination>
 			<destination>{63b2857e-19d9-4229-8e16-b0f634be2b3b}</destination>
+			<destination>{7adb53f6-ef33-4d6a-8c52-e0941c5ec360}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{83555a00-9e51-428b-957b-63ef5bf32d40}</destination>
@@ -59,7 +59,7 @@
 	<object class="MarkerTrack" id="{455a8311-469f-4cf8-a77d-0ab3d01fd216}" />
 	<object class="Timeline" id="{248eb603-df44-4119-8852-973832262a1c}">
 		<relationship name="modules">
-			<destination>{6e91e2d0-f78e-4ddc-895b-0eb1b8e853f0}</destination>
+			<destination>{7adb53f6-ef33-4d6a-8c52-e0941c5ec360}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{93b987f4-c2d6-4f44-9689-c2afa2b94692}</destination>
@@ -78,14 +78,6 @@
 			<destination>{1b874faf-2411-4cf4-abd2-4d3ba1bb9106}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{6e91e2d0-f78e-4ddc-895b-0eb1b8e853f0}">
-		<property name="length">
-			<value>119.99999999999999</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{470ae81b-a535-434c-a84e-e7a4c42f039d}</destination>
-		</relationship>
-	</object>
 	<object class="TransitionSourceSound" id="{9b28a8b9-f649-443a-a7e6-f5993d4c6654}">
 		<property name="length">
 			<value>2.1818181818181817</value>
@@ -100,6 +92,14 @@
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{9404a1d0-1407-45d4-8f1d-71ed3568e06c}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{7adb53f6-ef33-4d6a-8c52-e0941c5ec360}">
+		<property name="length">
+			<value>162.0969375</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{c1497cdc-5c59-4d9e-902e-8127099e80c5}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{d823d705-5b7f-4e43-9f61-32c11ecd2a11}">

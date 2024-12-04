@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{cea60894-7c89-4e84-977b-abf9523b105c}">
+		<property name="assetPath">
+			<value>SFX_PlayerSteps_Snow_07.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.24460416666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e22d0d1e-f21b-4a6e-8f32-fff33372775f}</destination>
+		</relationship>
+	</object>
+</objects>

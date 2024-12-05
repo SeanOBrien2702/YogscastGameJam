@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     Animator animator;
+    [SerializeField] Animator attackAnimator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D body;
 
@@ -10,11 +12,15 @@ public class PlayerController : MonoBehaviour
     Vector2 lastDirection = Vector2.zero;
 
     [SerializeField] LayerMask interactableMask;
+    [SerializeField] LayerMask enemyMask;
     [SerializeField] float runSpeed = 0.5f;
     [SerializeField] Transform carryPosition;
 
     float footstepTimer;
     float footstepCooldown = 0.3f;
+
+    float attackTimer;
+    float attackCooldown = 0.3f;
 
     void Start()
     {
@@ -33,9 +39,45 @@ public class PlayerController : MonoBehaviour
 
         Interactions();
         Movement();
+        Attack();
         
     }
 
+    private void Attack()
+    {
+        attackTimer += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && attackTimer > attackCooldown)
+        {
+            attackAnimator.SetTrigger("Attack");
+            attackTimer = 0;
+            //RaycastHit2D[] hit = Physics2D.CircleCastAll(transform.position, 75, lastDirection, 4, interactableMask);
+
+            //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, meleeRange, attackMask);
+            //if (colliders.Length > 0)
+            //{
+            //    AudioController.Instance.PlayOneShot(meleeAttackHitSound, transform.position);
+            //    //IDamageable damageable = colliders[UnityEngine.Random.Range(0, colliders.Length - 1)].GetComponent<IDamageable>();
+            //    //if (damageable != null)
+            //    //{
+            //    //    damageable.CalculateDamage(meleeDamage);
+            //    //}
+            //    foreach (Collider2D collider in colliders)
+            //    {
+            //        collider.GetComponent<IDamageable>().CalculateDamage(meleeDamage);
+            //    }
+            //}
+            //else
+            //{
+            //    AudioController.Instance.PlayOneShot(meleeAttackMissSound, transform.position);
+            //}
+        }
+    }
+
+
+    void OnAttack()
+    {
+        
+    }
     private void Interactions()
     {           
         if (Input.GetKeyDown(KeyCode.E))

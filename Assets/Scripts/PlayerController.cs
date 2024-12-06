@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static event Action<int> OnChangeHealth = delegate { };
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D body;
@@ -12,7 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask interactableMask;
     [SerializeField] float runSpeed = 0.5f;
     [SerializeField] Transform carryPosition;
-
+    [SerializeField] int health;
+    int currentHealth;
     float footstepTimer;
     float footstepCooldown = 0.3f;
     bool isTalking = false;

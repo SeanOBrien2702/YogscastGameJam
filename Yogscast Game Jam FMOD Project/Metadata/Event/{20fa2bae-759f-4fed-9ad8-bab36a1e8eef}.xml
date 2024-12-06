@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{20fa2bae-759f-4fed-9ad8-bab36a1e8eef}">
 		<property name="name">
-			<value>MX_Frosting Sugar Wonderland</value>
+			<value>BGM1_Frosting Sugar Wonderland</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>

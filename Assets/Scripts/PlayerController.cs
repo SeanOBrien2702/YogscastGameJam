@@ -15,34 +15,36 @@ public class PlayerController : MonoBehaviour
 
     float footstepTimer;
     float footstepCooldown = 0.3f;
+    bool isTalking = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
+        NPCController.OnNPCSelected += NPCController_OnNPCSelected;
+        DialogueController.OnDialogueComplete += DialogueController_OnDialogueComplete;
+    }
+
+    private void OnDestroy()
+    {
+        NPCController.OnNPCSelected -= NPCController_OnNPCSelected;
+        DialogueController.OnDialogueComplete -= DialogueController_OnDialogueComplete;
     }
 
     void Update()
     {
         if (MiniGameController.Instance.IsMiniGameActive) return;
-            //if (GameManager.Instance.IsGamePaused)
-            //{
-            //    direction = Vector2.zero;
-            //    return;
-            //}
-
+        if (isTalking) return;
         Interactions();
-        Movement();
-        
+        Movement();        
     }
 
     private void Interactions()
-    {           
+    {      
         if (Input.GetKeyDown(KeyCode.E))
         {
             float interactDistance = 2f;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, lastDirection, interactDistance, interactableMask);
-            Debug.Log(lastDirection);
             Debug.DrawRay(transform.position, lastDirection * interactDistance, Color.green);
             if (hit.collider != null)
             {
@@ -83,5 +85,15 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         body.linearVelocity = direction.normalized * runSpeed;
+    }
+
+    private void DialogueController_OnDialogueComplete()
+    {
+        isTalking = false;
+    }
+
+    private void NPCController_OnNPCSelected(string[] obj)
+    {
+        isTalking = true;
     }
 }

@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2fc50ffbb5a0e24d828c336dbad8dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: 0
+  npc: 4
   dialogue: []
 --- !u!114 &2422872216238449247
 MonoBehaviour:
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_CategoryHash: 0.058302507
   m_labelHash: 1.2985474e-36
   m_SpriteKey: 0
-  m_SpriteHash: 202114193
+  m_SpriteHash: 781404003
 --- !u!114 &3457024970328780308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,4 +203,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Library: []
-  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: a8cf34605225ef14d8083a5a4c23d1f7, type: 3}
+  m_SpriteLibraryAsset: {fileID: 7108339969198208228, guid: c9e0729f4570f6d46ae5deebf99570b6, type: 3}

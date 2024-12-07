@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static event Action<int> OnChangeHealth = delegate { };
+    public static event Action<int> OnChangeKillCount = delegate { };
     Animator animator;
     SpriteRenderer spriteRenderer;
     Rigidbody2D body;
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] LayerMask interactableMask;
     [SerializeField] float runSpeed = 0.5f;
-    [SerializeField] Transform carryPosition;
     [SerializeField] int health;
     int currentHealth;
     float footstepTimer;
@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        OnChangeHealth?.Invoke(health);
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         NPCController.OnNPCSelected += NPCController_OnNPCSelected;

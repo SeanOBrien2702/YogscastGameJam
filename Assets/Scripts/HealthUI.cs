@@ -21,6 +21,7 @@ public class HealthUI : MonoBehaviour
 
     private void PlayerController_OnChangeHealth(int health)
     {
+        Debug.Log("health " + health);
         //TODO: clean up this garbage code
         switch (health)
         {

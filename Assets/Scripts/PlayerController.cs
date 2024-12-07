@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
 {
+    public static PlayerController Instance { get; private set; }
     public static event Action<int> OnChangeHealth = delegate { };
     public static event Action<int> OnChangeKillCount = delegate { };
     Animator animator;
@@ -19,6 +20,19 @@ public class PlayerController : MonoBehaviour
     float footstepTimer;
     float footstepCooldown = 0.3f;
     bool isTalking = false;
+    
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {
@@ -99,5 +113,11 @@ public class PlayerController : MonoBehaviour
     private void NPCController_OnNPCSelected(string[] obj)
     {
         isTalking = true;
+    }
+
+    public void TakeDamage()
+    {
+        health--;
+        OnChangeHealth.Invoke(health);
     }
 }

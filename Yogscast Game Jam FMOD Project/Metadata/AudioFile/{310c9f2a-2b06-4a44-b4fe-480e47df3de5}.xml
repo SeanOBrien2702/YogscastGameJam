@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{310c9f2a-2b06-4a44-b4fe-480e47df3de5}">
+		<property name="assetPath">
+			<value>Gingerbread BGM7 R1.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>96.758604166666672</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{e22d0d1e-f21b-4a6e-8f32-fff33372775f}</destination>
+		</relationship>
+	</object>
+</objects>

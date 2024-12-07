@@ -166,6 +166,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{0e5ab7a2-c7fd-4603-9fc9-7d007386bddd}">
+		<property name="volume">
+			<value>-15.5</value>
+		</property>
 		<property name="name">
 			<value>Snow</value>
 		</property>
@@ -198,6 +201,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{84dbed41-fa7e-42a0-9683-9f3e90d3ca27}">
+		<property name="volume">
+			<value>-14</value>
+		</property>
 		<property name="name">
 			<value>Gravel</value>
 		</property>
@@ -237,7 +243,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{194a5f30-6e50-43d9-a8ad-9abe8bb537c9}">
 		<property name="volume">
-			<value>5.5</value>
+			<value>-11</value>
 		</property>
 		<property name="name">
 			<value>Gingerbread</value>

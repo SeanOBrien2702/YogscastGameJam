@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.UIElements.Experimental;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IDamageable
 {
     Animator animator;
     float movementSpeed = 2;
@@ -10,17 +9,10 @@ public class EnemyController : MonoBehaviour
     Vector3 direction;
     public bool IsMoving { get => isMoving; set => isMoving = value; }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         animator = GetComponent<Animator>();
         player = PlayerController.Instance.transform;
-    }
-
-    private void Update()
-    {
-        //velocity = (transform.position - previousPosition) / Time.deltaTime;
-        //previousPosition = transform.position;
     }
 
     void FixedUpdate()
@@ -59,18 +51,20 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("trigger " + collision.gameObject.layer);
         if (collision.gameObject.layer != LayerMask.NameToLayer("Player"))
         {
             return;
         }
-        Debug.Log("player " + collision.gameObject.layer);
         IDamageable damageable = collision.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            Debug.Log("damage " + collision.gameObject.layer);
             damageable.TakeDamage();
         }
+        Destroy(gameObject);
+    }
+
+    public void TakeDamage()
+    {
         Destroy(gameObject);
     }
 }

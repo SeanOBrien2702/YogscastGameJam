@@ -39,9 +39,9 @@
 	</object>
 	<object class="MasterTrack" id="{30b2edfd-e68a-437f-a742-49e67203efa6}">
 		<relationship name="modules">
-			<destination>{62e9fa3b-928b-4244-a632-0460aa895292}</destination>
 			<destination>{5daf1161-3a2b-4cdb-9f52-8d520e6e9d11}</destination>
 			<destination>{aaa7893b-ae60-4eb0-9677-1c133a3015da}</destination>
+			<destination>{36ba7be2-3a5f-4afa-937a-c214afb3f106}</destination>
 		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{61125571-28d2-46a9-a8fe-0c27a1290995}</destination>
@@ -62,7 +62,7 @@
 	<object class="MarkerTrack" id="{1c903e3a-f887-45fb-831f-d85beabcb0b6}" />
 	<object class="Timeline" id="{30f2ceda-e68f-423d-8962-25eda9508b8a}">
 		<relationship name="modules">
-			<destination>{62e9fa3b-928b-4244-a632-0460aa895292}</destination>
+			<destination>{36ba7be2-3a5f-4afa-937a-c214afb3f106}</destination>
 		</relationship>
 		<relationship name="markers">
 			<destination>{dc69fbe7-2b88-41db-a05f-2a4e5ba10185}</destination>
@@ -81,14 +81,6 @@
 			<destination>{aa06af00-cb09-4f06-a073-e283b9194ddc}</destination>
 		</relationship>
 	</object>
-	<object class="SingleSound" id="{62e9fa3b-928b-4244-a632-0460aa895292}">
-		<property name="length">
-			<value>39.216937500000014</value>
-		</property>
-		<relationship name="audioFile">
-			<destination>{615722af-e221-47b1-a9b7-f21fe0cb67bf}</destination>
-		</relationship>
-	</object>
 	<object class="TransitionSourceSound" id="{5daf1161-3a2b-4cdb-9f52-8d520e6e9d11}">
 		<property name="length">
 			<value>2</value>
@@ -103,6 +95,14 @@
 		</property>
 		<relationship name="fadeInCurve">
 			<destination>{76ca87f7-8d03-4da9-9628-076e021dd643}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{36ba7be2-3a5f-4afa-937a-c214afb3f106}">
+		<property name="length">
+			<value>39.2169375</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{7e15cd08-0b8f-414f-97b6-a2ac9b1c71ba}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{6fa2171b-fb60-453b-883a-b7aa41221940}">

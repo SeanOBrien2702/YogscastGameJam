@@ -172,9 +172,6 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{0b4a5587-613c-48c6-91be-65dede832425}">
-		<property name="looping">
-			<value>true</value>
-		</property>
 		<relationship name="modulators">
 			<destination>{d06e6298-3670-44d3-8fd7-ffbb37a950d6}</destination>
 		</relationship>

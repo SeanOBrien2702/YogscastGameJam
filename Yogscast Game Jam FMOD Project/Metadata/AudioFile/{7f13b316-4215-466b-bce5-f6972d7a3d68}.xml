@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{7f13b316-4215-466b-bce5-f6972d7a3d68}">
 		<property name="assetPath">
-			<value>Frosting Sugar Wonderland R1.wav</value>
+			<value>Music/Frosting Sugar Wonderland R1.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

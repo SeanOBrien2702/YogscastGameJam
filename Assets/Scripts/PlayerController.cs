@@ -1,3 +1,4 @@
+using FMODUnity;
 using System;
 using UnityEngine;
 
@@ -19,14 +20,21 @@ public class PlayerController : MonoBehaviour, IDamageable
     [SerializeField] LayerMask enemyMask;
     [SerializeField] float runSpeed = 0.5f;
     [SerializeField] int health;
+    [SerializeField] EventReference damagedSFX;
     int currentHealth;
     int killCount = 0;
-    float footstepTimer;
-    float footstepCooldown = 0.3f;
+   
     bool isTalking = false;
+
+    [SerializeField] EventReference attackSFX;
     float attackTimer;
     float attackCooldown = 0.5f;
     float interactDistance = 1f;
+
+    [SerializeField] EventReference footstepSFX;
+    float footstepTimer;
+    float footstepCooldown = 0.3f;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -69,6 +77,7 @@ public class PlayerController : MonoBehaviour, IDamageable
         if(Input.GetMouseButton(0) &&
            attackTimer > attackCooldown)
         {
+            AudioController.Instance.PlaySoundEffect(attackSFX);
             attackAnimator.SetTrigger("Attack");
             attackTimer = 0;
             float angle = Mathf.Atan2(lastDirection.y, lastDirection.x) * Mathf.Rad2Deg + 90;
@@ -115,7 +124,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             if (footstepTimer > footstepCooldown)
             {
                 footstepTimer = 0;
-                //SFXController.Instance.PlayFootstepsSound();
+                AudioController.Instance.PlaySoundEffect(footstepSFX);
             }
             animator.SetBool("IsMoving", true);
             animator.SetFloat("dirX", direction.x);
@@ -149,5 +158,6 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         health--;
         OnChangeHealth.Invoke(health);
+        AudioController.Instance.PlaySoundEffect(damagedSFX);
     }
 }

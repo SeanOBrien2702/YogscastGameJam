@@ -2311,7 +2311,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press E to interact
+  m_text: 'WASD to move
+
+    Press E to interact
 
     Left click to attack'
   m_isRightToLeft: 0

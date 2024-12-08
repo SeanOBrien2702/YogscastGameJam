@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6626671140605867951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5324363889967339403}
+  - component: {fileID: 7107199964117406466}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5324363889967339403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626671140605867951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.4952999, y: 0.23956685, z: 0.29164028}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7107199964117406466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6626671140605867951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f768714ab08607449bb98e26a540695b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overworld:
+    Guid:
+      Data1: 217233326
+      Data2: 1085382842
+      Data3: 131228071
+      Data4: -453045218
+    Path: event:/MX/MX_BGM1
+  overworld2:
+    Guid:
+      Data1: 483519746
+      Data2: 1152893597
+      Data3: -858317430
+      Data4: -431240326
+    Path: event:/MX/MX_BGM3
+  minigame:
+    Guid:
+      Data1: -776093871
+      Data2: 1172620077
+      Data3: 252716176
+      Data4: -1319502337
+    Path: event:/MX/MX_BGM2
+  minigame2:
+    Guid:
+      Data1: -1669382446
+      Data2: 1108268245
+      Data3: 1526357635
+      Data4: 1126276873
+    Path: event:/MX/MX_BGM4
+  menu:
+    Guid:
+      Data1: -1467610799
+      Data2: 1153363160
+      Data3: -203556693
+      Data4: -1469500493
+    Path: event:/MX/MX_BGM6
+  credit:
+    Guid:
+      Data1: -990765603
+      Data2: 1085861160
+      Data3: 411476158
+      Data4: 719622535
+    Path: event:/MX/MX_BGM7

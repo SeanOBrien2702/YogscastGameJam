@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{28b22980-63fd-4489-9967-396d37a9a576}">
 		<property name="assetPath">
-			<value>SFX_CaneAttack_02.wav</value>
+			<value>SFX/SFX_CaneAttack_02.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.3125</value>
+			<value>0.40158333333333335</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{e22d0d1e-f21b-4a6e-8f32-fff33372775f}</destination>

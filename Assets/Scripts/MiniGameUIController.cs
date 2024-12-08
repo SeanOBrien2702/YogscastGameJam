@@ -4,11 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class MiniGameUIController : MonoBehaviour
 {
-    public static event Action OnMiniGameComplete = delegate { };
+    public static event Action<bool> OnMiniGameComplete = delegate { };
+
+    public void CloseAdditiveLostScene()
+    {
+        OnMiniGameComplete?.Invoke(false);
+    }
+
     public void CloseAdditiveScene()
     {
-        //int lastSceneIndex = SceneManager.sceneCount - 1;
-        //SceneManager.UnloadSceneAsync(lastSceneIndex);
-        OnMiniGameComplete?.Invoke();
+        OnMiniGameComplete?.Invoke(true);
     }
 }

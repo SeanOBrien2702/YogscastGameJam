@@ -51,14 +51,14 @@ MonoBehaviour:
       Data3: 131228071
       Data4: -453045218
     Path: event:/MX/MX_BGM1
-  minigame:
+  overworld2:
     Guid:
       Data1: 483519746
       Data2: 1152893597
       Data3: -858317430
       Data4: -431240326
     Path: event:/MX/MX_BGM3
-  overworld2:
+  minigame:
     Guid:
       Data1: -776093871
       Data2: 1172620077

@@ -35,24 +35,35 @@ public class AudioController : MonoBehaviour
 
     void Start()
     {
+        backgroundMusic.Add(RuntimeManager.CreateInstance(menu));
         backgroundMusic.Add(RuntimeManager.CreateInstance(overworld));
         backgroundMusic.Add(RuntimeManager.CreateInstance(overworld2));
         backgroundMusic.Add(RuntimeManager.CreateInstance(minigame));
-        backgroundMusic.Add(RuntimeManager.CreateInstance(minigame2));
-        backgroundMusic.Add(RuntimeManager.CreateInstance(menu));
+        backgroundMusic.Add(RuntimeManager.CreateInstance(minigame2));    
         backgroundMusic.Add(RuntimeManager.CreateInstance(credit));
         backgroundMusic[currentMusic].start();
 
         MiniGameSelection.OnSelectMiniGame += MiniGameSelection_OnSelectMiniGame;
         MiniGameUIController.OnMiniGameComplete += MiniGameUIController_OnMiniGameComplete;
-        //GameSettings.OnMusicVolumeChange += GameSettings_OnMusicVolumeChange;
-        //GameSettings.OnSoundFXVolumeChange += GameSettings_OnSoundFXVolumeChange;
+        GameSettings.OnMusicVolumeChange += GameSettings_OnMusicVolumeChange;
+        GameSettings.OnSoundFXVolumeChange += GameSettings_OnSoundFXVolumeChange;
     }
+
 
     private void OnDestroy()
     {
         MiniGameSelection.OnSelectMiniGame -= MiniGameSelection_OnSelectMiniGame;
         MiniGameUIController.OnMiniGameComplete -= MiniGameUIController_OnMiniGameComplete;
+        GameSettings.OnMusicVolumeChange -= GameSettings_OnMusicVolumeChange;
+        GameSettings.OnSoundFXVolumeChange -= GameSettings_OnSoundFXVolumeChange;
+    }
+
+    void PlayOverworldMusic()
+    {
+        backgroundMusic[currentMusic].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        currentMusic = Random.Range(0, 2) == 0 ? 1 : 2;
+        backgroundMusic[currentMusic].start();
+        backgroundMusic[currentMusic].setVolume(musicVolume);
     }
 
     public void PlaySoundEffect(EventReference soundEffect)
@@ -64,15 +75,29 @@ public class AudioController : MonoBehaviour
 
     private void MiniGameUIController_OnMiniGameComplete(bool hasWon)
     {
-        backgroundMusic[currentMusic].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        currentMusic = Random.Range(0, 2) == 0 ? 0 : 2;
-        backgroundMusic[currentMusic].start();
+        PlayOverworldMusic();
     }
 
     private void MiniGameSelection_OnSelectMiniGame(MiniGameType obj)
     {
         backgroundMusic[currentMusic].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        currentMusic = Random.Range(0, 2) == 0 ? 1 : 3;
+        currentMusic = Random.Range(0, 2) == 0 ? 4 : 3;
         backgroundMusic[currentMusic].start();
+    }
+
+    private void GameSettings_OnSoundFXVolumeChange(float newSoundVolume)
+    {
+        soundVolume = newSoundVolume; 
+    }
+
+    private void GameSettings_OnMusicVolumeChange(float newMusicVolume)
+    {
+        musicVolume = newMusicVolume;
+        backgroundMusic[currentMusic].setVolume(musicVolume);
+    }
+
+    internal void StartGame()
+    {
+        PlayOverworldMusic();
     }
 }

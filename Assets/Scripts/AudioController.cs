@@ -62,7 +62,7 @@ public class AudioController : MonoBehaviour
         soundFX.start();
     }
 
-    private void MiniGameUIController_OnMiniGameComplete()
+    private void MiniGameUIController_OnMiniGameComplete(bool hasWon)
     {
         backgroundMusic[currentMusic].stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         currentMusic = Random.Range(0, 2) == 0 ? 0 : 2;

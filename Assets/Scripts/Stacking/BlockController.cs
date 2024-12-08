@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BlockController : MonoBehaviour
@@ -8,6 +9,16 @@ public class BlockController : MonoBehaviour
     [SerializeField] SpriteRenderer spritePrefab;
 
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
+
+    private void Start()
+    {
+        MiniGameUIController.OnMiniGameComplete += MiniGameUIController_OnMiniGameComplete;
+    }
+
+    private void OnDestroy()
+    {
+        MiniGameUIController.OnMiniGameComplete -= MiniGameUIController_OnMiniGameComplete;
+    }
 
     void Update()
     {
@@ -38,5 +49,10 @@ public class BlockController : MonoBehaviour
         BoxCollider2D collider2D = GetComponent<BoxCollider2D>();
         collider2D.size = new Vector2(size, 1);
         collider2D.offset = new Vector2(0.5f * (size - 1), 0);
+    }
+
+    private void MiniGameUIController_OnMiniGameComplete(bool obj)
+    {
+        Destroy(gameObject);
     }
 }

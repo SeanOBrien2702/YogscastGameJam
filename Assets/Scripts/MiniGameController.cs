@@ -49,7 +49,7 @@ public class MiniGameController : MonoBehaviour
         lastLoadedScene = sceneDict[type];
     }
 
-    private void MiniGameUIController_OnMiniGameComplete()
+    private void MiniGameUIController_OnMiniGameComplete(bool hasWon)
     {
         isMiniGameActive = false;
         SceneManager.UnloadSceneAsync(lastLoadedScene);

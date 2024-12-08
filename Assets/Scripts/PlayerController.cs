@@ -54,13 +54,16 @@ public class PlayerController : MonoBehaviour, IDamageable
         body = GetComponent<Rigidbody2D>();
         NPCController.OnNPCSelected += NPCController_OnNPCSelected;
         DialogueController.OnDialogueComplete += DialogueController_OnDialogueComplete;
+        MiniGameUIController.OnMiniGameComplete += MiniGameUIController_OnMiniGameComplete;
     }
 
     private void OnDestroy()
     {
         NPCController.OnNPCSelected -= NPCController_OnNPCSelected;
         DialogueController.OnDialogueComplete -= DialogueController_OnDialogueComplete;
+        MiniGameUIController.OnMiniGameComplete -= MiniGameUIController_OnMiniGameComplete;
     }
+
 
     void Update()
     {
@@ -159,5 +162,13 @@ public class PlayerController : MonoBehaviour, IDamageable
         health--;
         OnChangeHealth.Invoke(health);
         AudioController.Instance.PlaySoundEffect(damagedSFX);
+    }
+
+    private void MiniGameUIController_OnMiniGameComplete(bool hasWon)
+    {
+        if (!hasWon)
+        {
+            TakeDamage();
+        }
     }
 }

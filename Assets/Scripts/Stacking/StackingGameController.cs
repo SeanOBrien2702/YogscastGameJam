@@ -28,11 +28,23 @@ public class StackingGameController : MonoBehaviour
         currentBlock = Instantiate(blockPrefab, new Vector3(2, 0, 0), Quaternion.identity);
         currentBlock.SetSize(currentSize);
         currentBlock.MoveSpeed = currentSpeed;
+        Timer.OnTimerFinished += Timer_OnTimerFinished;
+    }
+
+    private void OnDestroy()
+    {
+        Timer.OnTimerFinished -= Timer_OnTimerFinished;
+    }
+
+    private void Timer_OnTimerFinished()
+    {
+        hasLost = true;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) &&
+            !hasLost)
         {
             SetBlockPosition();
             ShowRemainingBlocks();

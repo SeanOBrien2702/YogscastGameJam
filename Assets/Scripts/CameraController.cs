@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
         MiniGameUIController.OnMiniGameComplete += MiniGameUIController_OnMiniGameComplete;
     }
 
-    private void MiniGameUIController_OnMiniGameComplete()
+    private void MiniGameUIController_OnMiniGameComplete(bool hasWon)
     {
         camera.enabled = true;
     }

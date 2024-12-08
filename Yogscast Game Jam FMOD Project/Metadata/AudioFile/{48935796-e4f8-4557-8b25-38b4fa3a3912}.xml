@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{709251da-5345-4c65-9dc8-2ce0b264e15c}">
+	<object class="AudioFile" id="{48935796-e4f8-4557-8b25-38b4fa3a3912}">
 		<property name="assetPath">
-			<value>SFX/UI_HoverElement.wav</value>
+			<value>SFX/SFX_TeethAttack_01.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.125</value>
+			<value>0.40239583333333334</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{e22d0d1e-f21b-4a6e-8f32-fff33372775f}</destination>

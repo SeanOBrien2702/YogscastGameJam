@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: ccb9498d0c543b94f9f952faa2f3c826
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: 50f3ebc86473ed541ba433d942517e6c
   - enabled: 1
     path: Assets/Scenes/BoulderMaze.unity
     guid: 5f2402dea0c61aa498a4668545faab8c

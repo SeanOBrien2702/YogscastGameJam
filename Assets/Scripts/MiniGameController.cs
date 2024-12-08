@@ -10,8 +10,13 @@ public class MiniGameController : MonoBehaviour
     [SerializeField] string[] miniGameScenes;
     bool isMiniGameActive = false;
     Dictionary<MiniGameType, string> sceneDict = new Dictionary<MiniGameType, string>();
+    MiniGameType selectedType;
     string lastLoadedScene = "";
     public bool IsMiniGameActive { get => isMiniGameActive; }
+
+    bool isStackingComlete = false;
+    bool isWiringComplete = false;
+    bool isBoulderComplete = false;
 
     private void Awake()
     {
@@ -47,11 +52,33 @@ public class MiniGameController : MonoBehaviour
         isMiniGameActive = true;
         SceneManager.LoadScene(sceneDict[type], LoadSceneMode.Additive);
         lastLoadedScene = sceneDict[type];
+        selectedType = type;
     }
 
     private void MiniGameUIController_OnMiniGameComplete(bool hasWon)
     {
         isMiniGameActive = false;
         SceneManager.UnloadSceneAsync(lastLoadedScene);
+        if (hasWon)
+        {
+            switch (selectedType)
+            {
+                case MiniGameType.BoulderMaze:
+                    isBoulderComplete = true;
+                    break;
+                case MiniGameType.PresentStacking:
+                    isStackingComlete = true;
+                    break;
+                case MiniGameType.LightWiring:
+                    isWiringComplete = true;
+                    break;
+            }
+        }
+        if(isBoulderComplete &&
+           isStackingComlete &&
+           isWiringComplete)
+        {
+            SceneManager.LoadScene("FinalScene");
+        }
     }
 }

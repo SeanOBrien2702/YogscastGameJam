@@ -11,6 +11,7 @@ public class BoulderController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        victoryScreen.SetActive(true);
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+            victoryScreen.SetActive(true);
     }
 }

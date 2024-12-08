@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 7118816851009027502}
   - component: {fileID: 5333909451301320173}
   - component: {fileID: 8028645451910847983}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BoulderPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1441,7 +1441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5712917756832871638}
   - component: {fileID: 8628858789078945431}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

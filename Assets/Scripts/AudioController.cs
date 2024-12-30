@@ -1,9 +1,11 @@
 using FMOD;
 using FMOD.Studio;
 using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static UnityEngine.EventSystems.EventTrigger;
 
 public class AudioController : MonoBehaviour
@@ -23,6 +25,11 @@ public class AudioController : MonoBehaviour
     float soundVolume = 0.5f;
     private void Awake()
     {
+       
+    }
+
+    void Start()
+    {
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -31,24 +38,45 @@ public class AudioController : MonoBehaviour
         {
             Instance = this;
         }
-    }
+        //if (FMODUnity.RuntimeManager.HasBankLoaded("Master"))
+        //{
+        //    Debug.Log("Master Bank Loaded");
+        //    eventInstance = FMODUnity.RuntimeManager.CreateInstance(eventPath);
+        //}
 
-    void Start()
-    {
-        backgroundMusic.Add(RuntimeManager.CreateInstance(menu));
-        backgroundMusic.Add(RuntimeManager.CreateInstance(overworld));
-        backgroundMusic.Add(RuntimeManager.CreateInstance(overworld2));
-        backgroundMusic.Add(RuntimeManager.CreateInstance(minigame));
-        backgroundMusic.Add(RuntimeManager.CreateInstance(minigame2));    
-        backgroundMusic.Add(RuntimeManager.CreateInstance(credit));
-        backgroundMusic[currentMusic].start();
+        StartCoroutine(LoadMusic());
+
+    
 
         MiniGameSelection.OnSelectMiniGame += MiniGameSelection_OnSelectMiniGame;
         MiniGameUIController.OnMiniGameComplete += MiniGameUIController_OnMiniGameComplete;
+        //SceneManager.sceneLoaded += SceneManager_sceneLoaded;
         GameSettings.OnMusicVolumeChange += GameSettings_OnMusicVolumeChange;
         GameSettings.OnSoundFXVolumeChange += GameSettings_OnSoundFXVolumeChange;
     }
 
+    IEnumerator LoadMusic()
+    {
+        yield return new WaitForSeconds(1);
+        backgroundMusic.Add(RuntimeManager.CreateInstance(menu));
+        backgroundMusic.Add(RuntimeManager.CreateInstance(overworld));
+        backgroundMusic.Add(RuntimeManager.CreateInstance(overworld2));
+        backgroundMusic.Add(RuntimeManager.CreateInstance(minigame));
+        backgroundMusic.Add(RuntimeManager.CreateInstance(minigame2));
+        backgroundMusic.Add(RuntimeManager.CreateInstance(credit));
+
+        //if (backgroundMusic[0].)
+
+        backgroundMusic[currentMusic].start();
+    }
+
+    //private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode arg1)
+    //{
+    //    if(scene.name == "GameScene")
+    //    {
+    //        PlayOverworldMusic();
+    //    }
+    //}
 
     private void OnDestroy()
     {

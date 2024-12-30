@@ -17,6 +17,7 @@ public class StackingGameController : MonoBehaviour
     float currentSize = 4;
     bool[,] grid;
     bool hasLost = false;
+    float offset = 1000;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class StackingGameController : MonoBehaviour
         grid = new bool[12, 10];
 
         currentSpeed = startingSpeed;
-        currentBlock = Instantiate(blockPrefab, new Vector3(2, 0, 0), Quaternion.identity);
+        currentBlock = Instantiate(blockPrefab, new Vector3(2, offset, 0), Quaternion.identity, stackVisual.transform);
         currentBlock.SetSize(currentSize);
         currentBlock.MoveSpeed = currentSpeed;
         Timer.OnTimerFinished += Timer_OnTimerFinished;
@@ -107,11 +108,11 @@ public class StackingGameController : MonoBehaviour
     {
         lastBlock = currentBlock;
         Destroy(lastBlock.gameObject);
-        currentBlock = Instantiate(blockPrefab);
+        currentBlock = Instantiate(blockPrefab, stackVisual.transform);
         currentBlock.SetSize(currentSize);
         lastBlock.enabled = false;
         int startPos = UnityEngine.Random.Range(1, 6);
-        currentBlock.transform.position = new Vector3(startPos, level, 0);
+        currentBlock.transform.position = new Vector3(startPos, level + offset, 0);
         currentSpeed -= speedIncrement;
         currentBlock.MoveSpeed = currentSpeed;
     }

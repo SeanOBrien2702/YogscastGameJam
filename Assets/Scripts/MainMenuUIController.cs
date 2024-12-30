@@ -18,8 +18,14 @@ public class MainMenuUIController : MonoBehaviour
 
     public void StartGame()
     {
-        AudioController.Instance.StartGame();
+        
         //menuMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         SceneManager.LoadScene("GameScene");
+        AudioController.Instance.StartGame();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

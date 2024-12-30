@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -31,5 +32,15 @@ public class UIController : MonoBehaviour
         
         creditsPanel.SetActive(!creditsPanel.activeSelf);
         pausePanel.SetActive(!creditsPanel.activeSelf);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
